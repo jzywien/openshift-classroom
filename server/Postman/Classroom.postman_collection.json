@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "73a685c6-632b-45e4-b1b3-913885b708d4",
+		"name": "Classroom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "System Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "correlationId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/systemdetails",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"systemdetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Courses",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "correlationId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/courses",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "correlationId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/courses/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"courses",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CourseV2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "correlationId",
+						"type": "text",
+						"value": "{{$guid}}"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/vnd.Classroom.course.v2+json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/courses/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"courses",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Students",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "correlationId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/students",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "correlationId",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/students/9",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"students",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jon Snow\",\r\n    \"gpa\": 3.0,\r\n    \"courseIds\": [1]\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/students",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student - V2 Response",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/vnd.Classroom.student.v2+json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ned Stark\",\r\n    \"gpa\": 3.0,\r\n    \"courseIds\": [1]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/students",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student - V2 Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/vnd.Classroom.student.v2+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"student\": {\r\n\t    \"name\": \"Tyrion Lannister\",\r\n\t    \"gpa\": 3.8,\r\n\t    \"courseIds\": [1]\r\n\t},\r\n\t\"version\": 2\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/students",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student - V2 Request V2 Response",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/vnd.Classroom.student.v2+json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.Classroom.student.v2+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"student\": {\r\n\t    \"name\": \"Ramsey Bolton\",\r\n\t    \"gpa\": 2.8,\r\n\t    \"courseIds\": [1]\r\n\t},\r\n\t\"version\": 2\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/students",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/students/14",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"students",
+						"14"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
