@@ -9,11 +9,11 @@ RUN npm run build:prod
 
 FROM nginx:alpine as final
 RUN apk update && apk upgrade && apk add bash && apk add curl
+RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 RUN rm /etc/nginx/conf.d/default.conf
 COPY config/frontend.conf /etc/nginx/conf.d
-RUN rm -rf /usr/share/nginx/html/*
-RUN chown -R 1001:0 /usr/share/nginx/html
-USER 1001
-COPY --from=build /opt/app-root/dist/client /usr/share/nginx/html
 EXPOSE 8080
+RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=build /opt/app-root/dist/client /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
