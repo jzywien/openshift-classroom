@@ -1,0 +1,24 @@
+<div *ngIf="loading">
+  Loading...
+</div>
+
+<div *ngIf="serverInfo">
+  <h1>Server Info</h1>
+
+  <div>
+    <span>Environment Name: </span>
+    <span>{{ serverInfo.environmentName }}</span>
+  </div>
+  <div>
+    <span>Machine Name: </span>
+    <span>{{ serverInfo.machineName }}</span>
+  </div>
+  <div>
+    <span>OS Name: </span>
+    <span>{{ serverInfo.osPlatform }}</span>
+  </div>
+</div>
+
+<div *ngIf="serverError">
+  <h1>{{ serverError }}</h1>
+</div>
